@@ -4,12 +4,7 @@ const expressLayouts = require('express-ejs-layouts');
 const fs = require('fs').promises;
 require('dotenv').config();
 const db = require('./config/db');
-
-// Import routes
-const uploadRouter = require('./routes/upload');
-const dashboardRouter = require('./routes/dashboard');
-const downloadRouter = require('./routes/download');
-const dispositionsRouter = require('./routes/dispositions');
+const routes = require('./routes');
 
 const app = express();
 
@@ -37,14 +32,7 @@ const uploadsDir = path.join(__dirname, 'uploads');
 fs.mkdir(uploadsDir, { recursive: true }).catch(console.error);
 
 // Mount routes
-app.get('/', (req, res) => {
-    res.redirect('/dashboard');
-});
-
-app.use('/dashboard', dashboardRouter);
-app.use('/upload', uploadRouter);
-app.use('/download', downloadRouter);
-app.use('/dispositions', dispositionsRouter);
+app.use('/', routes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
