@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="error-container">
+                <i class="bi bi-exclamation-circle text-danger" style="font-size: 4rem;"></i>
+                <h1 class="mt-4"><%= message %></h1>
+                <p class="text-muted"><%= error %></p>
+                <div class="mt-4">
+                    <a href="javascript:history.back()" class="btn btn-outline-primary me-2">
+                        <i class="bi bi-arrow-left"></i> Go Back
+                    </a>
+                    <a href="/" class="btn btn-primary">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    padding: 3rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.error-container h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+.error-container p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+</style>
